@@ -4,3 +4,4 @@
 
 ### Estado del código
 [![Build Status](https://travis-ci.org/MMartinHornillos/iwvg-devops-manuel-martin.svg?branch=master)](https://travis-ci.org/MMartinHornillos/iwvg-devops-manuel-martin)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=MMartinHornillos_iwvg-devops-manuel-martin&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=MMartinHornillos_iwvg-devops-manuel-martin)
