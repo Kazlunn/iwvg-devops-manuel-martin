@@ -17,4 +17,8 @@ deploy:
   provider: heroku
   api_key: $HEROKU
   on:
-    branch: master
+    all_branches: true
+    condition: $TRAVIS_BRANCH =~ ^(develop|master)$
+  app:
+    master: miw-iwvg-devops-manuel-martin
+    develop: dev-iwvg-devops-manuel-martin
