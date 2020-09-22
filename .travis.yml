@@ -1,24 +1,25 @@
 language: java
-#jdk: openjdk14 #problems with sonar-maven-plugin
 branches:
   only:
-    - develop
-    - "/^release-[0-999].[0-999]$/"
-    - master
+  - develop
+  - "/^release-[0-999].[0-999]$/"
+  - master
 notifications:
   email:
     recipients:
-      - manuel.martin.hornillos@alumnos.upm.es
+    - manuel.martin.hornillos@alumnos.upm.es
+  slack:
+    secure: Kr7cFK0TM0kNHfqVMOeWp3MqHKky5uqV6DZENqbP+cGRhW8+Z0x35I8Ow693bpfrSltSWTaoxKwwB1mOSGhtfA8URbAhyUvzSbAo/qMLyYNyuAhriPZyOZX+YLZlLRplBlKAoY2Oj1b1PecmqAamHtm3GPwS1keD/IbN9REhwCv1L5frfa5JELBBsi65ftkwdBbNEZ4rhYGDM8y0UQ5AqwViRhBWLP8M+FWNPQuWFKxA/ql+HYAFkCJNZSv1J/S6KOKT+YOT643y+NGiq1mCfDwbtlJLeMohlJm/95svyKXrulHBogY3UrtmWfL9vUAw77z7nJG7+ZXJmPX9BXDHft8q94DAi2vxfbnoGQOfImHCrMEE/SF3WcEMPhQay1ummF4Qq3QKEQJ65/IjN/Ic3rmfnbjctnBeoAOHtWJGia0UGfbYkfT6k87oqA6f+eMEP0YmjIfg+dBx4Nn18u/2Jm7MjrU5nm7+s57+E24qzZp8DLACXuzXUHKEWc1XwaN6ZuNXVGyJu0k7tNxCuxk0kwOlgbUIaXVtLeJNH4TwE5oljkNBJxraNC/MjTdQl2NWonwT5pfJKtFmVXeCmJYnRkLlwnmGbZYg4J7CpYql7vBv/xaQxJq7fTGgR3I33lwkJfpjAVicXvbfB4xEdgjOHcru5haLIdroQWand0ZQME0=
 install:
-  - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+- mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 script:
-  - mvn verify sonar:sonar -Dsonar.host.url=https://sonarcloud.io -Dsonar.organization=mmartinhornillos -Dsonar.projectKey=MMartinHornillos_iwvg-devops-manuel-martin -Dsonar.login=$SONAR
+- mvn verify sonar:sonar -Dsonar.host.url=https://sonarcloud.io -Dsonar.organization=mmartinhornillos -Dsonar.projectKey=MMartinHornillos_iwvg-devops-manuel-martin -Dsonar.login=$SONAR
 deploy:
   provider: heroku
-  api_key: $HEROKU
+  api_key: "$HEROKU"
   on:
     all_branches: true
-    condition: $TRAVIS_BRANCH =~ ^(develop|master)$
+    condition: "$TRAVIS_BRANCH =~ ^(develop|master)$"
   app:
     master: miw-iwvg-devops-manuel-martin
     develop: dev-iwvg-devops-manuel-martin
