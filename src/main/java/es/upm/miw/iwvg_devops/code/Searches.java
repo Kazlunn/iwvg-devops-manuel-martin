@@ -21,7 +21,6 @@ public class Searches {
         return new UsersDatabase().findAll()
                 .filter(user -> user.getFractions().stream().anyMatch(Fraction::isProper))
                 .map(user -> user.getFamilyName() + " " + user.initials());
-
     }
 
     public Fraction findFractionSubtractionByUserName(String name) {
