@@ -11,4 +11,10 @@ public class Searches {
                 ).map(User::getFamilyName);
     }
 
+    public Fraction findFractionAdditionByUserId(String id) {
+        return new UsersDatabase().findAll().filter(user -> user.getId().equals(id))
+                .flatMap(user -> user.getFractions().stream())
+                .reduce(Fraction::add).orElse(new Fraction(0, 0));
+    }
+
 }
