@@ -75,6 +75,10 @@ public class Fraction {
         return new Fraction(numerator * fraction.getDenominator() + fraction.getNumerator() * denominator, denominator * fraction.getDenominator());
     }
 
+    public Fraction subtract(Fraction fraction) {
+        return new Fraction(numerator * fraction.getDenominator() - fraction.getNumerator() * denominator, denominator * fraction.getDenominator());
+    }
+
     public Fraction multiply(Fraction fraction) {
         return new Fraction(numerator * fraction.getNumerator(), denominator * fraction.getDenominator());
     }
