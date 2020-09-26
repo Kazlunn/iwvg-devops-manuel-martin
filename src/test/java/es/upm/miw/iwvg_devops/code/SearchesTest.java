@@ -26,7 +26,6 @@ class SearchesTest {
         assertEquals(List.of("Fernandez O.", "Blanco A.", "López O.", "Blanco A."),
                 new Searches().findUserFamilyNameInitialByAnyProperFraction()
                         .collect(Collectors.toList()));
-
     }
 
     @Test
