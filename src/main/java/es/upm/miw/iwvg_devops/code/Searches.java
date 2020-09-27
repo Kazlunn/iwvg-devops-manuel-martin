@@ -20,7 +20,7 @@ public class Searches {
     public Stream<String> findUserFamilyNameInitialByAnyProperFraction() {
         return new UsersDatabase().findAll()
                 .filter(user -> user.getFractions().stream().anyMatch(Fraction::isProper))
-                .map(user -> user.getFamilyName() + " " + user.initials());
+                .map(user -> user.getFamilyName().substring(0, 1));
     }
 
     public Fraction findFractionSubtractionByUserName(String name) {
